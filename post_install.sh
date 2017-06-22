@@ -3,8 +3,8 @@ fetch http://www.tolisgroup.com/downloads/bruserver20/complete/BRU_Server_Comple
 tar xvfz BRU_Server_Complete_freebsd11_2.0.5.tgz
 mkdir -p /usr/local/bru-server
 mkdir -p /usr/local/etc/rc.d
-cd unix/agent && mv * /usr/local/bru-server && cd ../console && mv * /usr/local/bru-server
 cp bru-server-rc /usr/local/etc/rc.d/bru_server
+cd unix/agent && mv * /usr/local/bru-server && cd ../console && mv * /usr/local/bru-server
 chmod +x /usr/local/etc/rc.d/bru_server
 ln -s /usr/local/bru-server/bru-server.console /usr/local/bin/bru-server.console
 sysrc -f /etc/rc.conf bru_server_enable="YES"
