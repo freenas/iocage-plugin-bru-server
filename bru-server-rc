@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: bru-server
+# REQUIRE: LOGIN cleanvar
+# KEYWORD: shutdown
+
+# Add the following lines to /etc/rc.conf to enable bru-server:
+#
+# bru_server_enable="YES"
+#
+#
+
+. /etc/rc.subr
+
+name="bru_server"
+rcvar=bru_server_enable
+
+# read configuration and set defaults
+load_rc_config "$name"
+: ${bru_server_enable="NO"}
+: ${bru_server_server=""}
+: ${bru_server_password=""}
+
+start_cmd="bru_server_start"
+stop_cmd="bru_server_stop"
+
+bru_server_start()
+{
+    if checkyesno ${rcvar}; then
+        echo "Starting bru-server "
+        /usr/local/bru-server/agent --config2 $bru_server_server $bru_server_password
+    fi
+}
+
+iocage_stop()
+{
+    if checkyesno ${rcvar}; then
+        echo "Stopping bru-server "
+        /usr/local/bru-server/agent -k
+    fi
+}
+
+run_rc_command "$1"
