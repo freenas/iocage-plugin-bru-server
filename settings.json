@@ -1,0 +1,16 @@
+{
+	"servicerestart":"service bru_server restart",
+	"serviceget": "/usr/local/bin/bruget",
+	"serviceset": "/usr/local/bin/bruset",
+	"options": {
+		"server": {
+			"type": "string",
+			"description": "BRU Server Hostname / IP"
+		},
+		"password": {
+			"type": "password",
+			"description": "BRU Server Password"
+		}
+
+	}
+}
