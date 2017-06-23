@@ -31,11 +31,12 @@ bru_server_start()
 {
     if checkyesno ${rcvar}; then
         echo "Starting bru-server "
-        /usr/local/bru-server/agent --config2 $bru_server_server $bru_server_password
+        /usr/local/bru-server/agent --config2 $bru_server_server,$bru_server_password
+        /usr/local/bru-server/agent
     fi
 }
 
-iocage_stop()
+bru_server_stop()
 {
     if checkyesno ${rcvar}; then
         echo "Stopping bru-server "
