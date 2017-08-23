@@ -1,9 +1,15 @@
 #!/bin/sh
 fetch http://www.tolisgroup.com/downloads/bruserver20/complete/BRU_Server_Complete_freebsd11_2.0.5.tgz
+if [ $? -ne 0 ] ; then
+  echo "ERROR: Failed fetching the BRU server package"
+  exit 1
+fi
 tar xvfz BRU_Server_Complete_freebsd11_2.0.5.tgz
+
 mkdir -p /usr/local/bru-server
 mkdir -p /usr/local/bin
 mkdir -p /usr/local/etc/rc.d
+
 cd unix/agent && mv * /usr/local/bru-server && cd ../console && mv * /usr/local/bru-server
 chmod +x /usr/local/etc/rc.d/bru_server
 ln -s /usr/local/bru-server/bru-server.console /usr/local/bin/bru-server.console
