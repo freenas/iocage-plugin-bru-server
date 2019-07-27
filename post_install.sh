@@ -15,5 +15,5 @@ chmod +x /usr/local/etc/rc.d/bru_server
 ln -s /usr/local/bru-server/bru-server.console /usr/local/bin/bru-server.console
 sysrc -f /etc/rc.conf bru_server_enable="YES"
 
-echo "You will need to set bru_server_server and bru_server_password in /etc/rc.conf before the service will start"
-echo "For more information on how to use BRU, visit: http://www.tolisgroup.com/assets/bru_server_1.2.0_cli_guide.pdf"
+echo "You will need to set bru_server_server and bru_server_password in /etc/rc.conf before the service will start" > /root/PLUGIN_INFO
+echo "For more information on how to use BRU, visit: http://www.tolisgroup.com/assets/bru_server_1.2.0_cli_guide.pdf" >> /root/PLUGIN_INFO
